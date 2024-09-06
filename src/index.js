@@ -6,7 +6,7 @@ connectDB();
 
 
 
-// Database Connection Methods old versions
+// Database Connection Methods old versions we not use bcz not mess in index.js files anymore but it's working appropriately
 // const app = express();
 // (async () => {
 //     try {
