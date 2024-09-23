@@ -1,8 +1,63 @@
 import dotenv from 'dotenv'
-import connectDB from './Database/db.js';
+import {connectDB} from './Database/db.js';
+import {app} from './app.js';
+// import { Connection } from 'mongoose';
 
-dotenv.config();
-connectDB();
+dotenv.config({
+    path: './.env'
+});
+
+
+const startServer = async () => {
+    try {
+        // Connect to the database
+        await connectDB();  // Assuming connectDB is an asynchronous function
+
+        // Start your Express server after the DB connection
+        app.listen(process.env.PORT, () => {
+            console.log(`Server running on port ${process.env.PORT}`);
+        });
+
+    } catch (error) {
+        console.error('Error starting the server or connecting to the database:', error);
+        process.exit(1);  // Exit the process if there is a failure
+    }
+};
+
+// Call the startServer function
+startServer();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
